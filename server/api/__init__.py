@@ -5,7 +5,7 @@ from . import db
 import os
 import datetime
 
-cors = CORS()
+# cors = CORS()
 
 def init_app():
     app = Flask(__name__)
@@ -13,7 +13,7 @@ def init_app():
     app.config['DATABASE_URL'] = 'dbname=complaints'
     app.config["JWT_ACCESS_TOKEN_EXPIRES"] = datetime.timedelta(days=30)
     jwt = JWTManager(app)
-    cors.init_app(app)
+    CORS(app)
     db.init_app(app)
 
 
