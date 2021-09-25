@@ -7,8 +7,8 @@ function Cards(props) //A dictionary is passed in as a prop. Dictionary has deta
 
     return(
         <div class="card" onClick={onCardClick}>
-            <p>{props.complaint['title']}</p>
-            <p>Opened by: {props.complaint['author']}</p>
+            <p style={{fontWeight: 'bold'}}>{props.complaint['title']}</p>
+            <p style={{fontSize:'.9rem',color: 'grey'}}>{props.complaint['author']}</p>
         </div>
     )
 }

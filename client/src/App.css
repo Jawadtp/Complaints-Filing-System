@@ -160,6 +160,8 @@ button:focus {
   transition: background 0.1s ease 0s;
   cursor: pointer;
   user-select: none;
+
+  border-bottom: 4px solid green;
 }
 
 .card:hover{
