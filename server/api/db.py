@@ -72,9 +72,9 @@ def get_tiles():
     db = get_db()
     cur = db.cursor()
     cur.execute("SELECT c.id, c.title, s.name, c.status FROM complaints c, students s WHERE c.author = s.rollno ORDER BY c.priority DESC, c.date DESC")
-    tiles = cur.fetchall()
+    tiles = [{'id': id, 'title': title, 'author': author, 'status': status} for id, title, author, status in cur.fetchall()]
     cur.execute("SELECT tag FROM tags")
-    tags = cur.fetchall()
+    tags = list(cur.fetchall())
     cur.close()
     return {'tiles': tiles, 'tags': tags}
 
@@ -84,7 +84,7 @@ def get_tiles_by_tag(tag):
     cur.execute("SELECT id FROM tags WHERE tag=%s", (tag,))
     tid = cur.fetchone()
     cur.execute("SELECT c.id, c.title, s.name, c.status FROM complaints c, students s WHERE c.author = s.rollno AND c.id in (SELECT cid FROM tags_complaints WHERE tid = %s) ORDER BY c.priority DESC, c.date DESC", (tid[0],))
-    tiles = cur.fetchall()
+    tiles = [{'id': id, 'title': title, 'author': author, 'status': status} for id, title, author, status in cur.fetchall()]
     cur.close()
     return {'tiles': tiles}
 
@@ -92,13 +92,13 @@ def get_complaint_details(cid):
     db = get_db()
     cur = db.cursor()
     cur.execute("SELECT c.title, c.date, c.description, s.name, c.status, c.votes, c.priority, c.eta FROM complaints c, students s WHERE c.id = %s AND c.author = s.rollno", (cid,))
-    complaint = cur.fetchone()
+    complaint = [{'title': title, 'date': date, 'description': description, 'author': author, 'status': status, 'votes': votes, 'priority': priority, 'eta': eta} for title, date, description, author, status, votes, priority, eta in cur.fetchone()]
     cur.execute("SELECT * from comments WHERE cid=%s", (cid,))
-    comments = cur.fetchall()
+    comments = [{'id': id, 'cid': cid, 'date': date, 'comment': comment, 'author': author} for id, cid, date, comment, author in cur.fetchall()]
     cur.execute("SELECT t.tag FROM tags t, tags_complaints tc WHERE tc.cid = %s AND t.id = tc.tid", (cid,))
-    tags = cur.fetchall()
+    tags = list(cur.fetchall())
     cur.close()
-    return {'complaint': complaint, 'comments': comments, 'tags': tags}
+    return {'complaints': complaint, 'comments': comments, 'tags': tags}
 
 def vote(cid):
     db = get_db()
