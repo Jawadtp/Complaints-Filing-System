@@ -9,6 +9,7 @@ function AdminLogin(props)
         localStorage.setItem('token', result.access_token)
         props.setView(0)
     }
+    
     function logUserIn()
     {
 
