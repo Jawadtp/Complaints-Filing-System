@@ -4,7 +4,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 60px;
+    width: 75px;
     min-height: 100%;
     overflow-x: hidden;
     z-index: 100;
@@ -23,7 +23,7 @@
 {
   width: 100%;
   height: 42px;
-  padding: 10px 15px;
+  padding: 10px 22px;
   color: rgb(222, 235, 255);
   transition: color 0.1s ease 0s;
   cursor: pointer;
@@ -31,7 +31,8 @@
 }
 
 #searchIcon,
-#plusIcon{
+#plusIcon,
+#adminLogin{
   position: relative;
   top:5px
 }
@@ -48,7 +49,7 @@ svg
 .navItemDesc
 {
   color: white;
-  margin-left: 25px;
+  margin-left: 28px;
   font-size: 13px;
   font-weight: 600;
 }
@@ -182,10 +183,7 @@ button:focus {
 }
 
 .issueForm input[value="Create Issue"]{
-  position: relative;
-  right: -600px;
-  margin-top: 40px;
-  padding: 5px;
+  padding: 0 10px;
   color: white;
   border: none;
   height: 2rem;
@@ -193,13 +191,33 @@ button:focus {
   background-color: #0f65e6;
 }
 
+.issueForm input[value="Create Issue"]:hover{
+  background-color: #0c56c5;
+}
+
 .issueForm input[value="Cancel"]{
-  position: relative;
-  right: -610px;
-  padding: 5px;
+  padding: 0 10px;
   height: 2rem;
   border: none;
   border-radius: 5px;
-  width: 10%;
+}
 
+.issueForm input[value="Cancel"]:hover{
+  background-color: rgb(218, 218, 218);
+}
+
+.tags{
+  margin-top: 20px;
+}
+
+.issueFormSubmitButtons{
+  display: inline-block;
+  padding: 20px 5px;
+}
+
+#tag1,
+#tag2,
+#tag3{
+  padding: 10px 10px 10px 0;
+  display: inline-block;
 }
