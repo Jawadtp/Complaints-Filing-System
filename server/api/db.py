@@ -73,8 +73,10 @@ def get_tiles():
     cur = db.cursor()
     cur.execute("SELECT c.id, c.title, s.name, c.status FROM complaints c, students s WHERE c.author = s.rollno ORDER BY c.priority DESC, c.date DESC")
     tiles = cur.fetchall()
+    cur.execute("SELECT tag FROM tags")
+    tags = cur.fetchall()
     cur.close()
-    return {'tiles': tiles}
+    return {'tiles': tiles, 'tags': tags}
 
 def get_tiles_by_tag(tag):
     db = get_db()
