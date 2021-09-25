@@ -1,7 +1,6 @@
-from flask import Flask
+from api import init_app
 
-app = Flask(__name__)
+app = init_app()
 
-@app.route("/")
-def index():
-    return "Hello World!"
+if __name__ == "__main__":
+    app.run()
