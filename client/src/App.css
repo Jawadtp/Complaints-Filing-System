@@ -222,3 +222,52 @@ button:focus {
   padding: 10px 10px 10px 0;
   display: inline-block;
 }
+
+.authorName
+{
+  font-size: 18px;
+  font-weight: 600;
+}
+.descHeader
+{
+  margin-top: 30px;
+  font-size: 20px;
+}
+
+.titleHeader
+{
+  margin-top: 35px;
+  font-size: 20px; 
+}
+
+.issueTitle
+{
+  margin-top: 10px;
+}
+.issueDesc
+{
+  margin-top: 10px;
+}
+
+.issueDate
+{
+  float: right;
+}
+
+.votesTitle
+{
+  font-size: 20px; 
+}
+
+.votes
+{
+  margin: auto;
+}
+.votesWrapper
+{
+  
+  padding: 5px;
+  display: inline-block;
+  border: 1px solid black;
+  border-radius: 8px;
+}
