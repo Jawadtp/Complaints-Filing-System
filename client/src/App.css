@@ -1,38 +1,99 @@
-.App {
-  text-align: center;
+.vertNavBar
+{
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 60px;
+    min-height: 100%;
+    overflow-x: hidden;
+    z-index: 100;
+    background-color: #0747a6;
+    white-space: nowrap;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+.vertNavBar:hover
+{
+  transition: 0.5s;
+  width: 180px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.navBarItem
+{
+  display: block;
+  margin-left: 15px;
+  margin-top: 10px;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+}
+
+svg 
+{
+  vertical-align: bottom;
+}
+
+.navItemDesc
+{
   color: white;
+  margin-left: 25px;
+  font-size: 13px;
+  font-weight: 600;
 }
 
-.App-link {
-  color: #61dafb;
+a
+{
+  text-decoration: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.pageContent
+{
+  margin: 50px 200px;
+}
+
+.boardHome
+{
+  color: #575757;
+}
+
+.complaints
+{
+  color: black;
+  margin-top: 10px;
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.landingSearch
+{
+  border: none;
+  border-radius: 15px;
+  height: 25px;
+  background-color: #dfe1e6;
+  margin-top: 20px;
+  width: 200px;
+  padding: 5px 15px;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
+.complaintsView
+{
+  margin-top: 30px;
+  display: flex;
+}
+
+.col
+{
+  width: 260px;
+  background-color: #dfe1e6;
+  margin-right: 100px;
+  border-radius: 5px;
+  padding: 6px;
+  height: 500px;
 }
