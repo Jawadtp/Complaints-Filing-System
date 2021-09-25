@@ -45,14 +45,14 @@ def login():
         return make_response(jsonify(message='Invalid credentials'), 401)
 
 @app.route("/complaints/<int:cid>/edit/", methods=['POST'])
-@jwt_required
+@jwt_required()
 def edit(cid):
     db.edit_complaint(cid, json.loads(request.data))
     return make_response(jsonify({'message': 'Complaint edited'}), 201)
 
 @app.route("/admins/")
-@jwt_required
-def get_admins():
+@jwt_required()
+def list_admin():
     return db.get_admins()
 
 
