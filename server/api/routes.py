@@ -3,6 +3,7 @@ from flask import current_app as app
 from flask_jwt_extended import create_access_token
 from flask_jwt_extended import get_jwt_identity
 from flask_jwt_extended import jwt_required
+import json
 from . import db
 
 
@@ -11,9 +12,7 @@ def home():
     if request.method == 'GET':
         return db.get_tiles()
     else:
-        print(request.data)
-        print(request.json)
-        db.new_complaint(request.json)
+        db.new_complaint(json.loads(request.data))
         return make_response(jsonify({'message': 'Complaint added'}), 201)
 
 @app.route('/complaints/<tag>/')
@@ -31,11 +30,13 @@ def upvote(cid):
 
 @app.route("/complaints/<int:cid>/comment/", methods=['POST'])
 def comment(cid):
+    request.json = json.loads(request.data)
     db.add_comment(cid, request.json['comment'], request.json['rollno'])
     return make_response(jsonify({'message': 'Comment added'}), 201)
 
 @app.route("/admin/", methods=['POST'])
 def login():
+    request.json = json.loads(request.data)
     user = db.auth(request.json['username'], request.json['password'])
     if user:
         access_token = create_access_token(identity=user.username)
@@ -46,7 +47,7 @@ def login():
 @app.route("/complaints/<int:cid>/edit/", methods=['POST'])
 @jwt_required
 def edit(cid):
-    db.edit_complaint(cid, request.json)
+    db.edit_complaint(cid, json.loads(request.data))
     return make_response(jsonify({'message': 'Complaint edited'}), 201)
 
 

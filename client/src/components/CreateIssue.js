@@ -25,7 +25,8 @@ const CreateIssue = () =>
 
         fetch('http://localhost:5000/complaints', {
         method: 'POST',
-        body: complaintToPost,
+        
+        body: JSON.stringify(complaintToPost),
         })
         .then(response => response.json())
         .then(result => {
