@@ -81,3 +81,19 @@ textarea:focus,
 button:focus {
     outline: none;
 }
+
+.complaintsView
+{
+  margin-top: 30px;
+  display: flex;
+}
+
+.col
+{
+  width: 260px;
+  background-color: #dfe1e6;
+  margin-right: 100px;
+  border-radius: 5px;
+  padding: 6px;
+  height: 500px;
+}
