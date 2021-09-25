@@ -13,7 +13,9 @@ def init_app():
     app.config['DATABASE_URL'] = 'dbname=complaints'
     app.config["JWT_ACCESS_TOKEN_EXPIRES"] = datetime.timedelta(days=30)
     jwt = JWTManager(app)
-    CORS(app)
+    cors = CORS(app)
+    app.config['CORS_HEADERS'] = 'Content-Type'
+
     db.init_app(app)
 
 

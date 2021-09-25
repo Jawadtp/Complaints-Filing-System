@@ -9,6 +9,7 @@ const Landing = () =>
 {
 
     const [complaints, setComplaints] = useState([])
+    const [tags, setTags] = useState([])
     const [view, setView] = useState(0) //Views: 0 - default, 1 - create issue,2 - admin login
 
     useEffect(() => 
@@ -22,8 +23,13 @@ const Landing = () =>
     function onComplaintsReceive(comps)
     {
         setComplaints(comps['tiles'])
+<<<<<<< HEAD
         console.log('Printing tiles')
         console.log(comps)
+=======
+        setTags(comps['tags'])
+        console.log(comps['tiles'])
+>>>>>>> 60da0f0e79b2d6f8047aa71e0a5c345e1c63bd98
     }
 
     function onMouseEnterNavbar()
@@ -64,7 +70,7 @@ const Landing = () =>
 
     function setPageContent(view){
         if(view === 0){
-            return(<ComplaintsView complaints={complaints}/>)
+            return(<ComplaintsView complaints={complaints} tags={tags}/>)
         }
         else if(view === 1){
             return(<CreateIssue/>)
