@@ -50,6 +50,11 @@ def edit(cid):
     db.edit_complaint(cid, json.loads(request.data))
     return make_response(jsonify({'message': 'Complaint edited'}), 201)
 
+@app.route("/admins/")
+@jwt_required
+def get_admins():
+    return db.get_admins()
+
 
 @app.errorhandler(404)
 def error1(a):
