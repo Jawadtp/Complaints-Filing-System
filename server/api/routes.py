@@ -40,7 +40,7 @@ def login():
     user = db.auth(data['username'], data['password'])
     if user:
         access_token = create_access_token(identity=user.username)
-        return make_response(jsonify(access_token=access_token), 200)
+        return make_response({'access_token': access_token}, 200)
     else:
         return make_response(jsonify(message='Invalid credentials'), 401)
 
