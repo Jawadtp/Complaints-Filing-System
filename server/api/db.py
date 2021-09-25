@@ -45,7 +45,7 @@ def get_admins():
     cur.execute("SELECT username FROM admins")
     admins = cur.fetchall()
     cur.close()
-    return admins
+    return {'admins': tuple(admins)}
 
 def get_admin(username):
     db = get_db()
