@@ -30,14 +30,14 @@ def upvote(cid):
 
 @app.route("/complaints/<int:cid>/comment/", methods=['POST'])
 def comment(cid):
-    request.json = json.loads(request.data)
-    db.add_comment(cid, request.json['comment'], request.json['rollno'])
+    data = json.loads(request.data)
+    db.add_comment(cid, data['comment'], data['rollno'])
     return make_response(jsonify({'message': 'Comment added'}), 201)
 
 @app.route("/admin/", methods=['POST'])
 def login():
-    request.json = json.loads(request.data)
-    user = db.auth(request.json['username'], request.json['password'])
+    data = json.loads(request.data)
+    user = db.auth(data['username'], data['password'])
     if user:
         access_token = create_access_token(identity=user.username)
         return make_response(jsonify(access_token=access_token), 200)
