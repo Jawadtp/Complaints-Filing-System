@@ -3,13 +3,13 @@ import {BsPlus} from 'react-icons/bs'
 import {RiSearchLine,RiAdminFill} from 'react-icons/ri'
 import ComplaintsView from '../components/ComplaintsView'
 import CreateIssue from '../components/CreateIssue'
-
+import AdminLogin from '../components/AdminLogin'
 
 const Landing = () => 
 {
 
     const [complaints, setComplaints] = useState([])
-    const [view, setView] = useState(0) //Views: 0 - default, 1 - create issue
+    const [view, setView] = useState(0) //Views: 0 - default, 1 - create issue,2 - admin login
 
     useEffect(() => 
     {
@@ -77,7 +77,19 @@ const Landing = () =>
 
     function onAdminLoginClick()
     {
-        setView(0) //0 - complaints view
+        setView(2) //0 - complaints view
+    }
+
+    function setPageContent(view){
+        if(view === 0){
+            return(<ComplaintsView complaints={complaints}/>)
+        }
+        else if(view === 1){
+            return(<CreateIssue/>)
+        }
+        else{
+            return(<AdminLogin/>)
+        }
     }
 
     return (
@@ -102,7 +114,8 @@ const Landing = () =>
             </div>
 
             <div className="pageContent">
-                {!view?<ComplaintsView complaints={complaints}/>:<CreateIssue/>}
+                {setPageContent(view)}
+                {/* {!view?<ComplaintsView complaints={complaints}/>:<CreateIssue/>} */}
             </div>
         </div>
     )
