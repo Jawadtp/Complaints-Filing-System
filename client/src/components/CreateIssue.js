@@ -54,7 +54,7 @@ const CreateIssue = () =>
                     <div className="priority">
                         <label>Priority</label><br/>
 
-                        <select id="cars" name="cars">
+                        <select>
                             <option value="0">Low</option>
                             <option value="1">Medium</option>
                             <option value="2">High</option>
@@ -67,13 +67,33 @@ const CreateIssue = () =>
                     </div>
 
                     <div className="tags">
-                        <label>Enter tags (comma-separated)</label><br/>
-                        <input type="text" id="tags" placeholder="Tags"></input>
+
+                        <div>Select tags: </div>
+
+                        <div id="tag1">
+                            <input type="checkbox" />
+                            <label for="scales">Tag1</label>
+                        </div>
+
+                        <div id="tag2">
+                            <input type="checkbox"/>
+                            <label for="scales">Tag2</label>
+                        </div>
+
+                        <div id="tag3">
+                            <input type="checkbox"/>
+                            <label for="scales">Tag3</label>
+                        </div>
                     </div>
 
-        <input type="button" value="Cancel"/>
-        <input type="button" value="Submit" onClick={postComplaint}/>
-
+                    <div>
+                        <div className="issueFormSubmitButtons">
+                            <input type="button" value="Cancel"/>
+                        </div>
+                        <div className="issueFormSubmitButtons">
+                            <input type="button" value="Create Issue" onClick={postComplaint}/>
+                        </div>
+                    </div>
                     
                 </form>
             </div>

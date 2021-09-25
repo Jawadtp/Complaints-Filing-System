@@ -182,10 +182,7 @@ button:focus {
 }
 
 .issueForm input[value="Create Issue"]{
-  position: relative;
-  right: -600px;
-  margin-top: 40px;
-  padding: 5px;
+  padding: 0 10px;
   color: white;
   border: none;
   height: 2rem;
@@ -193,13 +190,33 @@ button:focus {
   background-color: #0f65e6;
 }
 
+.issueForm input[value="Create Issue"]:hover{
+  background-color: #0c56c5;
+}
+
 .issueForm input[value="Cancel"]{
-  position: relative;
-  right: -610px;
-  padding: 5px;
+  padding: 0 10px;
   height: 2rem;
   border: none;
   border-radius: 5px;
-  width: 10%;
+}
 
+.issueForm input[value="Cancel"]:hover{
+  background-color: rgb(218, 218, 218);
+}
+
+.tags{
+  margin-top: 20px;
+}
+
+.issueFormSubmitButtons{
+  display: inline-block;
+  padding: 20px 5px;
+}
+
+#tag1,
+#tag2,
+#tag3{
+  padding: 10px 10px 10px 0;
+  display: inline-block;
 }
