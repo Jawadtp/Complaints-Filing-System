@@ -92,13 +92,14 @@ def get_complaint_details(cid):
     db = get_db()
     cur = db.cursor()
     cur.execute("SELECT c.title, c.date, c.description, s.name, c.status, c.votes, c.priority, c.eta FROM complaints c, students s WHERE c.id = %s AND c.author = s.rollno", (cid,))
-    complaint = [{'title': title, 'date': date, 'description': description, 'author': author, 'status': status, 'votes': votes, 'priority': priority, 'eta': eta} for title, date, description, author, status, votes, priority, eta in cur.fetchone()]
+    title, date, description, author, status, votes, priority, eta = cur.fetchone()
+    complaint = {'title': title, 'date': date, 'description': description, 'author': author, 'status': status, 'votes': votes, 'priority': priority, 'eta': eta}
     cur.execute("SELECT * from comments WHERE cid=%s", (cid,))
     comments = [{'id': id, 'cid': cid, 'date': date, 'comment': comment, 'author': author} for id, cid, date, comment, author in cur.fetchall()]
     cur.execute("SELECT t.tag FROM tags t, tags_complaints tc WHERE tc.cid = %s AND t.id = tc.tid", (cid,))
     tags = list(cur.fetchall())
     cur.close()
-    return {'complaints': complaint, 'comments': comments, 'tags': tags}
+    return {'complaint': complaint, 'comments': comments, 'tags': tags}
 
 def vote(cid):
     db = get_db()
