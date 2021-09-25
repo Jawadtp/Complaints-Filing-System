@@ -93,10 +93,37 @@ button:focus {
 
 .col
 {
+  display: flex;
+  flex-direction: column;
   width: 260px;
   background-color: #dfe1e6;
   margin-right: 100px;
   border-radius: 5px;
   padding: 6px;
   height: 500px;
+}
+
+.card{
+  height: 7rem;
+  /* width:100%; */
+  border-radius: 30px;
+  background-color: rgba(233, 233, 233, 0.534);
+  margin:5px 5px;
+
+  padding: 10px 10px 0 10px;
+  border-radius: 3px;
+  background: rgb(255, 255, 255);
+  box-shadow: rgb(9 30 66 / 25%) 0px 1px 2px 0px;
+  transition: background 0.1s ease 0s;
+  cursor: pointer;
+  user-select: none;
+}
+
+.card:hover{
+  background-color: rgb(235, 236, 240);
+}
+
+.complaintsTitle
+{
+  align-self: center;
 }

@@ -1,10 +1,10 @@
-function Cards(props){
-    const issue="Sample Issue"
-    const author="Dinkan"
+function Cards(props) //A dictionary is passed in as a prop. Dictionary has details of the respective complaint.
+{
+   
     return(
         <div class="card">
-            <p>{issue}</p>
-            <p>Opened by: {author}</p>
+            <p>{props.complaint['title']}</p>
+            <p>Opened by: {props.complaint['name']}</p>
 
         </div>
     )
