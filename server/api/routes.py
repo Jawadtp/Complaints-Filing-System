@@ -11,7 +11,7 @@ def home():
     if request.method == 'GET':
         return db.get_tiles()
     else:
-        db.new_complaint(request.form)
+        db.new_complaint(request.json)
         return make_response(jsonify({'message': 'Complaint added'}), 201)
 
 @app.route('/complaints/<tag>/')
@@ -44,7 +44,7 @@ def login():
 @app.route("/complaints/<int:cid>/edit/", methods=['POST'])
 @jwt_required
 def edit(cid):
-    db.edit_complaint(cid, request.form)
+    db.edit_complaint(cid, request.json)
     return make_response(jsonify({'message': 'Complaint edited'}), 201)
 
 

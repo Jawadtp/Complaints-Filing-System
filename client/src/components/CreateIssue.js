@@ -1,7 +1,35 @@
 import React from 'react'
+import axios from 'axios'
 
 const CreateIssue = () => 
 {
+    function postComplaint()
+    {
+        var tags = document.getElementById('tags').value.split(',')
+
+        for(var i=0; i<tags.length; i++)
+            tags[i]=tags[i].trim()
+
+        const complaintToPost = 
+        {
+            'title': document.getElementById('title').value,
+            'description': document.getElementById('desc').value,
+            'priority': document.getElementById('cars').value,
+            'author': document.getElementById('author').value,
+            'tags': tags
+        }
+
+        console.log(complaintToPost)
+        console.log(complaintToPost['tags'])
+
+        axios.post('http://localhost:5000/complaints', complaintToPost).then((response)=>
+        {
+            console.log(response)
+        })
+
+        
+    }
+
     return (
         <div className="issueForm">
             <div>
@@ -12,13 +40,20 @@ const CreateIssue = () =>
 
             <div>
                 <form>
+
+                    <div className="author">
+                        <label>Enter you roll number</label><br/>
+                        <input type="text" id="author" placeholder="Roll no"></input>
+                    </div>
+
                     <div className="summary">
                         <label>Issue summary</label><br/>
-                        <input type="text" placeholder="Title"></input>
+                        <input type="text" id="title" placeholder="Title"></input>
                     </div>
 
                     <div className="priority">
                         <label>Priority</label><br/>
+
                         <select id="cars" name="cars">
                             <option value="0">Low</option>
                             <option value="1">Medium</option>
@@ -28,16 +63,18 @@ const CreateIssue = () =>
                     
                     <div className="description">
                         <label>Issue description</label><br/>
-                        <textarea></textarea>
+                        <textarea id="desc"></textarea>
                     </div>
 
-                    <div>
-                        <input type="submit" value="Create Issue"></input>
-                        <input type="submit" value="Cancel"></input>
+                    <div className="tags">
+                        <label>Enter tags (comma-separated)</label><br/>
+                        <input type="text" id="tags" placeholder="Tags"></input>
                     </div>
 
-                    <div>
-                    </div>
+        <input type="button" value="Cancel"/>
+        <input type="button" value="Submit" onClick={postComplaint}/>
+
+                    
                 </form>
             </div>
         </div>
