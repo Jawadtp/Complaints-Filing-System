@@ -124,6 +124,14 @@ def new_complaint(form):
     db = get_db()
     cur = db.cursor()
     cur.execute("INSERT INTO complaints (title, date, description, author, priority) VALUES (%s, %s, %s, %s, %s)", (form['title'], datetime.now(), form['description'], form['author'], form['priority']))
+    cid = cur.fetchone()[0]
+    cur.execute("SELECT tag from tags")
+    tags = list(cur.fetchall())
+    utags = [tag for tag in form['tags'] if tag not in tags]
+    cur.executemany("INSERT INTO tags (tag) VALUES (%s)", utags)
+    cur.execute("SELECT id FROM tags WHERE tag IN %s", tags)
+    tagid = cur.fetchall()
+    cur.executemany("INSERT INTO tags_complaints(cid, tid) VALUES (%s, %s)", [(cid, tid) for tid in tagid])
     db.commit()
     cur.close()
 
