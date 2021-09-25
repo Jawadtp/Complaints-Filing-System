@@ -223,30 +223,48 @@ button:focus {
   display: inline-block;
 }
 
-.authorName
-{
-  font-size: 18px;
-  font-weight: 600;
+.detailedViewWrapper{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
+
+.mainDetails{
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 60%;
+  border-right:  2px solid rgba(128, 128, 128, 0.24);
+}
+
+.subDetails{
+  padding: 25px;
+}
+
 .descHeader
 {
   margin-top: 30px;
   font-size: 20px;
+  border-bottom: 2px solid rgba(128, 128, 128, 0.24);
 }
 
-.titleHeader
+/* .titleHeader
 {
   margin-top: 35px;
-  font-size: 20px; 
-}
+  font-size: 30px; 
+} */
 
 .issueTitle
 {
   margin-top: 10px;
+  font-size: 40px;
+  font-weight: bold;
 }
+
 .issueDesc
 {
   margin-top: 10px;
+  min-height: 10rem;
 }
 
 .issueDate
@@ -254,8 +272,10 @@ button:focus {
   float: right;
 }
 
-.votesTitle
+.votesWrapper
 {
+  position: relative;
+  top: 20rem;
   font-size: 20px; 
 }
 
@@ -263,11 +283,24 @@ button:focus {
 {
   margin: auto;
 }
+
 .votesWrapper
 {
-  
   padding: 5px;
   display: inline-block;
-  border: 1px solid black;
   border-radius: 8px;
+}
+
+.subDetails h2{
+  margin-bottom: 7px;
+}
+
+.authorName
+{
+  font-size: 18px;
+  margin-bottom: 5rem;
+}
+
+.statusSection{
+  margin-top: 3rem;
 }
