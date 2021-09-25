@@ -22,10 +22,19 @@ const CreateIssue = () =>
         console.log(complaintToPost)
         console.log(complaintToPost['tags'])
 
-        axios.post('http://localhost:5000/complaints', complaintToPost).then((response)=>
-        {
-            console.log(response)
+
+        fetch('http://localhost:5000/complaints', {
+        method: 'POST',
+        body: complaintToPost,
         })
+        .then(response => response.json())
+        .then(result => {
+        console.log('Success:', result);
+        })
+        .catch(error => {
+        console.error('Error:', error);
+        });
+      
 
         
     }
