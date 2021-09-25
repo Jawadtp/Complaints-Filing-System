@@ -3,6 +3,7 @@ from flask import current_app as app
 from flask_jwt_extended import create_access_token
 from flask_jwt_extended import get_jwt_identity
 from flask_jwt_extended import jwt_required
+import json
 from . import db
 
 
@@ -11,8 +12,13 @@ def home():
     if request.method == 'GET':
         return db.get_tiles()
     else:
+        issue=json.loads(request.data)
+        print(issue['title'])
+        return make_response(jsonify('Success'), 201)
+        '''
         db.new_complaint(request.json)
         return make_response(jsonify({'message': 'Complaint added'}), 201)
+        '''
 
 @app.route('/complaints/<tag>/')
 def get_tiles_by_tag(tag):
