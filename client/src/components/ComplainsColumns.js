@@ -14,7 +14,7 @@ const ComplainsColumns = (props) => {  //This generates each of the three column
                 {
                     props.complaints.map(function (complaint)
                     {
-                        return complaint['status']==props.status?<Cards complaint={complaint}/>:''
+                        return complaint['status']==props.status?<Cards complaint={complaint} onCardClick={props.onCardClick}/>:''
                     })
                 }
                 

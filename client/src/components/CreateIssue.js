@@ -4,16 +4,14 @@ const CreateIssue = () =>
 {
     function postComplaint()
     {
-        var tags = document.getElementById('tags').value.split(',')
 
-        for(var i=0; i<tags.length; i++)
-            tags[i]=tags[i].trim()
+        var tags = ['tag1']
 
         const complaintToPost = 
         {
             'title': document.getElementById('title').value,
             'description': document.getElementById('desc').value,
-            'priority': document.getElementById('cars').value,
+            'priority': document.getElementById('priority').value,
             'author': document.getElementById('author').value,
             'tags': tags
         }
@@ -63,7 +61,7 @@ const CreateIssue = () =>
                     <div className="priority">
                         <label>Priority</label><br/>
 
-                        <select>
+                        <select id="priority">
                             <option value="0">Low</option>
                             <option value="1">Medium</option>
                             <option value="2">High</option>
