@@ -39,7 +39,12 @@
 
 svg 
 {
-  vertical-align: bottom;
+  color:#0747a6;
+  font-size: 1.3rem;
+  position:relative;
+  top: 3px;
+  padding-right: 5px;
+  /* vertical-align: bottom; */
 }
 
 .navBarContainer{
