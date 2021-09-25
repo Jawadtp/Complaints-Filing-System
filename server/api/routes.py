@@ -11,6 +11,8 @@ def home():
     if request.method == 'GET':
         return db.get_tiles()
     else:
+        print(request.data)
+        print(request.json)
         db.new_complaint(request.json)
         return make_response(jsonify({'message': 'Complaint added'}), 201)
 
@@ -29,12 +31,12 @@ def upvote(cid):
 
 @app.route("/complaints/<int:cid>/comment/", methods=['POST'])
 def comment(cid):
-    db.add_comment(cid, request.form['comment'], request.form['rollno'])
+    db.add_comment(cid, request.json['comment'], request.json['rollno'])
     return make_response(jsonify({'message': 'Comment added'}), 201)
 
 @app.route("/admin/", methods=['POST'])
 def login():
-    user = db.auth(request.form['username'], request.form['password'])
+    user = db.auth(request.json['username'], request.json['password'])
     if user:
         access_token = create_access_token(identity=user.username)
         return make_response(jsonify(access_token=access_token), 200)

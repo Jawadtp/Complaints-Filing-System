@@ -41,3 +41,25 @@ CREATE TABLE tags_complaints (
     tid INTEGER REFERENCES tags(id),
     cid INTEGER REFERENCES complaints(id)
 );
+
+
+INSERT INTO tags(tag)
+VALUES('Canteen');
+
+INSERT INTO tags(tag)
+VALUES('Washroom');
+
+INSERT INTO tags(tag)
+VALUES('Water');
+
+INSERT INTO tags(tag)
+VALUES('Room');
+
+INSERT INTO tags(tag)
+VALUES('Internet Connectivity');
+
+INSERT INTO tags(tag)
+VALUES('Common Room');
+
+INSERT INTO tags(tag)
+VALUES('Other');
