@@ -12,9 +12,10 @@ const ComplaintsView = (props) =>
         <input type='text' className="landingSearch" placeholder="Search.."/>
 
         <div className="complaintsView">
+           
             <ComplainsColumns status={0} complaints={props.complaints}/>            
             <ComplainsColumns status={1} complaints={props.complaints}/>               
-            <ComplainsColumns status={2} complaints={props.complaints}/>               
+            <ComplainsColumns status={2} complaints={props.complaints}/>            
 
         </div>
     </>

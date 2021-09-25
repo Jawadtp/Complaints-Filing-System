@@ -72,6 +72,7 @@ const Landing = () =>
 
     function onSearchIssuesClick()
     {
+        setView(0) //0 - complaints view
 
     }
 
