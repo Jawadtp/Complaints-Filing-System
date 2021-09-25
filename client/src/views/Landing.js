@@ -79,13 +79,15 @@ const Landing = () =>
     return (
         <div className="pageWrapper">
             <div className="vertNavBar" onMouseOver={onMouseEnterNavbar} onMouseOut={onMouseLeaveNavbar}>
-            
-                <div className="navBarItem" onClick={onSearchIssuesClick}>
-                    <RiSearchLine size={25} color={'white'}/><span className="navItemDesc">SEARCH ISSUES</span>
+                <div className="navBarContainer">
+                    <div className="navBarItem" onClick={onSearchIssuesClick}>
+                        <RiSearchLine id="searchIcon" size={25} color={'white'}/><span className="navItemDesc">SEARCH ISSUES</span>
+                    </div>
+                    <div className="navBarItem" onClick={onCreateIssueClick}>
+                        <BsPlus size={30} id="plusIcon" color={'white'}/><span className="navItemDesc">CREATE ISSUES</span>
+                    </div>
                 </div>
-                <div className="navBarItem" onClick={onCreateIssueClick}>
-                    <BsPlus size={30} color={'white'}/><span className="navItemDesc">CREATE ISSUES</span>
-                </div>
+                
             
             </div>
 
