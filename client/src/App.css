@@ -4,7 +4,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 50px;
+    width: 60px;
     min-height: 100%;
     overflow-x: hidden;
     z-index: 100;
@@ -16,42 +16,30 @@
 .vertNavBar:hover
 {
   transition: 0.5s;
-  width: 200px;
+  width: 180px;
 }
 
-.NavBarItem
+.navBarItem
 {
-  display: flex;
-  margin-left: 10px;
+  display: block;
+  margin-left: 15px;
+  margin-top: 10px;
   justify-content: center;
   align-items: center;
+}
+
+svg {
+  vertical-align: bottom;
 }
 
 .navItemDesc
 {
   color: white;
-  margin-left: 20px;
-  font-size: 12px;
-  font-weight: 550;
-}
-
-.navItem
-{
-  display: flex;
-  margin-left: 12px;
-  margin-top: 10px;
-  justify-content: center;
-}
-
-.navDesc
-{
-  font-size: 12px;
+  margin-left: 25px;
+  font-size: 13px;
   font-weight: 600;
-  display: inherit;
-  margin: auto 20px;
-  color: white;
-  align-self: center;
 }
+
 
 
 a

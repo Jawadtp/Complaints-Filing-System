@@ -8,21 +8,20 @@ const Landing = () =>
 
     function onMouseEnterNavbar()
     {
-     /*   console.log('Mouse entered')
-        const navDescs = document.getElementsByClassName('navDesc')
+    /*    console.log('Mouse entered')
+        const navDescs = document.getElementsByClassName('navBarItem')
         
         for(var i=0; i<navDescs.length; i++)
-            navDescs[i].style.display='inline-block' */
+            navDescs[i].style.display='flex' */
     }
 
     function onMouseLeaveNavbar()
     {
-      /*  console.log('Mouse left')
-        const navDescs = document.getElementsByClassName('navDesc')
+       /* console.log('Mouse entered')
+        const navDescs = document.getElementsByClassName('navBarItem')
         
         for(var i=0; i<navDescs.length; i++)
-            navDescs[i].style.display='none' 
-            */
+            navDescs[i].style.display='flex' */
         
     }
     
@@ -37,6 +36,7 @@ const Landing = () =>
                     <BsPlus size={30} color={'white'}/><span className="navItemDesc">CREATE ISSUES</span>
                 </div>
 
+                
                
             
             </div>
