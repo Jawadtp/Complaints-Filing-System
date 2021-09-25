@@ -1,11 +1,13 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {BsPlus} from 'react-icons/bs'
 import {FaSearch} from 'react-icons/fa'
 import {RiSearchLine} from 'react-icons/ri'
+import ComplaintsView from '../components/ComplaintsView'
 
 const Landing = () => 
 {
 
+    const [view, setView] = useState(0) //Views: 0 - default, 1 - create issue
     function onMouseEnterNavbar()
     {
     /*    console.log('Mouse entered')
@@ -25,35 +27,32 @@ const Landing = () =>
         
     }
     
+    function onCreateIssueClick()
+    {
+        setView(1) //1 - issue creation form view
+    }
+
+
+    function onSearchIssuesClick()
+    {
+
+    }
+
     return (
         <div className="pageWrapper">
             <div className="vertNavBar" onMouseOver={onMouseEnterNavbar} onMouseOut={onMouseLeaveNavbar}>
             
-                <div className="navBarItem">
+                <div className="navBarItem" onClick={onSearchIssuesClick}>
                     <RiSearchLine size={25} color={'white'}/><span className="navItemDesc">SEARCH ISSUES</span>
                 </div>
-                <div className="navBarItem">
+                <div className="navBarItem" onClick={onCreateIssueClick}>
                     <BsPlus size={30} color={'white'}/><span className="navItemDesc">CREATE ISSUES</span>
                 </div>
             
             </div>
 
             <div className="pageContent">
-                <div className="boardHome">board / home</div>
-                <div className="complaints">Complaints</div>
-                <input type='text' className="landingSearch" placeholder="Search.."/>
-
-                <div className="complaintsView">
-                    <div className="col col1">
-                        Cards come here
-                    </div>
-                    <div className="col col2">
-                        Cards come here
-                    </div>
-                    <div className="col col3">
-                        Cards come here
-                    </div>
-                </div>
+                {!view?<ComplaintsView/>:'Create Issue'}
             </div>
         </div>
     )
