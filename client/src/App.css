@@ -28,7 +28,8 @@
   align-items: center;
 }
 
-svg {
+svg 
+{
   vertical-align: bottom;
 }
 
@@ -40,9 +41,43 @@ svg {
   font-weight: 600;
 }
 
-
-
 a
 {
   text-decoration: none;
+}
+
+.pageContent
+{
+  margin: 50px 200px;
+}
+
+.boardHome
+{
+  color: #575757;
+}
+
+.complaints
+{
+  color: black;
+  margin-top: 10px;
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.landingSearch
+{
+  border: none;
+  border-radius: 15px;
+  height: 25px;
+  background-color: #dfe1e6;
+  margin-top: 20px;
+  width: 200px;
+  padding: 5px 15px;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
 }

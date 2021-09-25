@@ -35,10 +35,13 @@ const Landing = () =>
                 <div className="navBarItem">
                     <BsPlus size={30} color={'white'}/><span className="navItemDesc">CREATE ISSUES</span>
                 </div>
-
-                
-               
             
+            </div>
+
+            <div className="pageContent">
+                <div className="boardHome">board / home</div>
+                <div className="complaints">Complaints</div>
+                <input type='text' className="landingSearch" placeholder="Search.."/>
             </div>
         </div>
     )
