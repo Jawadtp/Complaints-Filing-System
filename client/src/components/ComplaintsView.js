@@ -1,6 +1,10 @@
 import React from 'react'
+import Cards from './Card'
+import ComplainsColumns from './ComplainsColumns'
 
-const ComplaintsView = () => {
+const ComplaintsView = (props) => 
+{
+
     return (
     <>
         <div className="boardHome">board / home</div>
@@ -8,15 +12,10 @@ const ComplaintsView = () => {
         <input type='text' className="landingSearch" placeholder="Search.."/>
 
         <div className="complaintsView">
-            <div className="col col1">
-                Cards come here
-            </div>
-            <div className="col col2">
-                Cards come here
-            </div>
-            <div className="col col3">
-                Cards come here
-            </div>
+            <ComplainsColumns status={0} complaints={props.complaints}/>            
+            <ComplainsColumns status={1} complaints={props.complaints}/>               
+            <ComplainsColumns status={2} complaints={props.complaints}/>               
+
         </div>
     </>
     )

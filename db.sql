@@ -21,7 +21,7 @@ CREATE TABLE complaints (
     title TEXT,
     date TIMESTAMP,
     description TEXT,
-    status TEXT DEFAULT 'Open',
+    status INTEGER DEFAULT 0,
     author TEXT REFERENCES students(rollno),
     assignee TEXT REFERENCES admins(username),
     votes INTEGER DEFAULT 0,
