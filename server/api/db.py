@@ -79,7 +79,7 @@ def auth(username, password):
 def get_tiles():
     db = get_db()
     cur = db.cursor()
-    cur.execute("SELECT c.id, c.title, s.name, c.status FROM complaints c, students s WHERE c.author = s.rollno ORDER BY c.priority DESC, c.date DESC")
+    cur.execute("SELECT c.id, c.title, s.name, c.status, c.priority FROM complaints c, students s WHERE c.author = s.rollno ORDER BY c.priority DESC, c.date DESC")
     tiles = [{'id': id, 'title': title, 'author': author, 'status': status} for id, title, author, status in cur.fetchall()]
     cur.execute("SELECT tag FROM tags")
     tags = list(cur.fetchall())
@@ -91,7 +91,7 @@ def get_tiles_by_tag(tag):
     cur = db.cursor()
     cur.execute("SELECT id FROM tags WHERE tag=%s", (tag,))
     tid = cur.fetchone()
-    cur.execute("SELECT c.id, c.title, s.name, c.status FROM complaints c, students s WHERE c.author = s.rollno AND c.id in (SELECT cid FROM tags_complaints WHERE tid = %s) ORDER BY c.priority DESC, c.date DESC", (tid[0],))
+    cur.execute("SELECT c.id, c.title, s.name, c.status, c.priority FROM complaints c, students s WHERE c.author = s.rollno AND c.id in (SELECT cid FROM tags_complaints WHERE tid = %s) ORDER BY c.priority DESC, c.date DESC", (tid[0],))
     tiles = [{'id': id, 'title': title, 'author': author, 'status': status} for id, title, author, status in cur.fetchall()]
     cur.close()
     return {'tiles': tiles}
