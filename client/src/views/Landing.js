@@ -22,7 +22,8 @@ const Landing = () =>
     function onComplaintsReceive(comps)
     {
         setComplaints(comps['tiles'])
-        console.log(comps['tiles'])
+        console.log('Printing tiles')
+        console.log(comps)
     }
 
     function onMouseEnterNavbar()

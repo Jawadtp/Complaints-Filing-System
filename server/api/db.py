@@ -143,6 +143,6 @@ def new_complaint(form):
 def edit_complaint(cid, form):
     db = get_db()
     cur = db.cursor()
-    cur.execute("UPDATE complaints SET assignee=%s priority = %s, status=%s, eta=%s WHERE id = %s", (form['assignee'], form['priority'], form['status'], form['eta'], cid))
+    cur.execute("UPDATE complaints SET assignee=%s, priority = %s, status=%s, eta=%s WHERE id = %s", (form['assignee'], form['priority'], form['status'], form['eta'], cid))
     db.commit()
     cur.close()
