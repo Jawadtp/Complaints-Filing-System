@@ -63,6 +63,14 @@ svg
   background-color: #0c57c7;
 }
 
+.tags{
+  margin:3px;
+  border-radius: 3px;
+  display: inline-block;
+  background-color: #dfe1e6;
+  padding: 5px 10px;
+}
+
 a
 {
   text-decoration: none;

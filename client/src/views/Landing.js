@@ -9,6 +9,7 @@ const Landing = () =>
 {
 
     const [complaints, setComplaints] = useState([])
+    const [tags, setTags] = useState([])
     const [view, setView] = useState(0) //Views: 0 - default, 1 - create issue,2 - admin login
 
     useEffect(() => 
@@ -22,6 +23,7 @@ const Landing = () =>
     function onComplaintsReceive(comps)
     {
         setComplaints(comps['tiles'])
+        setTags(comps['tags'])
         console.log(comps['tiles'])
     }
 
@@ -63,7 +65,7 @@ const Landing = () =>
 
     function setPageContent(view){
         if(view === 0){
-            return(<ComplaintsView complaints={complaints}/>)
+            return(<ComplaintsView complaints={complaints} tags={tags}/>)
         }
         else if(view === 1){
             return(<CreateIssue/>)

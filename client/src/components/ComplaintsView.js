@@ -14,13 +14,24 @@ const ComplaintsView = (props) =>
     }
 
     return (
-        
         <div className="complaintsViewWrapper">
+            {console.log(props.tags)}
             {detailedViewID==-1?
             <>
             <div className="boardHome">board / home</div>
             <div className="complaints">Complaints</div>
             <input type='text' className="landingSearch" placeholder="Search.."/>
+
+            <div className="tagRow">
+                {
+                    props.tags.map(function (tag) {
+                    return(
+                        <div className="tags">
+                            {tag}
+                        </div>
+                    )
+                })}
+            </div>
 
             <div className="complaintsView">
             
