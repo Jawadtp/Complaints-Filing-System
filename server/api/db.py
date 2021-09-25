@@ -123,10 +123,10 @@ def add_comment(cid, comment, author):
 def new_complaint(form):
     db = get_db()
     cur = db.cursor()
-    cur.execute("INSERT INTO complaints (title, date, description, author, priority) VALUES (%s, %s, %s, %s, %s)", (form['title'], datetime.now(), form['description'], form['author'], form['priority']))
+    cur.execute("INSERT INTO complaints (title, date, description, author, priority) VALUES (%s, %s, %s, %s, %s) RETURNING id", (form['title'], datetime.now(), form['description'], form['author'], form['priority']))
     cid = cur.fetchone()[0]
-    tags = list(form['tags'])
-    cur.execute("SELECT id FROM tags WHERE tag IN %s", tags)
+    # tags = [(tag) for tag in form['tags']]
+    cur.execute("SELECT id FROM tags WHERE tag IN %s", (tuple(form['tags']),))
     tagid = cur.fetchall()
     cur.executemany("INSERT INTO tags_complaints(cid, tid) VALUES (%s, %s)", [(cid, tid) for tid in tagid])
     db.commit()
