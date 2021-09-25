@@ -16,17 +16,20 @@
 .vertNavBar:hover
 {
   transition: 0.5s;
-  width: 180px;
+  width: 200px;
 }
 
 .navBarItem
 {
+  padding: 0px 10px;
+  cursor: pointer;
   display: block;
   margin-left: 15px;
   margin-top: 10px;
   justify-content: center;
   align-items: center;
 }
+
 
 svg 
 {
@@ -48,7 +51,7 @@ a
 
 .pageContent
 {
-  margin: 50px 200px;
+  margin: 50px 220px;
 }
 
 .boardHome
