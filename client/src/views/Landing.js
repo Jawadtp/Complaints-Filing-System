@@ -24,7 +24,7 @@ const Landing = () =>
         setComplaints(comps['tiles'])
         console.log(comps['tiles'])
     }
-    
+
     function onMouseEnterNavbar()
     {
     /*    console.log('Mouse entered')
@@ -69,7 +69,7 @@ const Landing = () =>
             return(<CreateIssue/>)
         }
         else{
-            return(<AdminLogin/>)
+            return(<AdminLogin setView={setView}/>)
         }
     }
 
