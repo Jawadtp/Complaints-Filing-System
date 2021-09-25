@@ -39,7 +39,7 @@ class User:
 def hash_password(password):
     return hashlib.sha3_512(password.encode()).hexdigest()
 
-def get_admin():
+def get_admins():
     db = get_db()
     cur = db.cursor()
     cur.execute("SELECT username FROM admins")
