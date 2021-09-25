@@ -5,7 +5,7 @@ function AdminLogin(props)
 
     function onUserAuthentication(result)
     {
-        console.log('Login successful '+result)
+        console.log('Login successful '+result.access_token)
         props.setView(0)
     }
     function logUserIn()
