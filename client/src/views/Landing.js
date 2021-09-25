@@ -1,13 +1,22 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import {BsPlus} from 'react-icons/bs'
 import {FaSearch} from 'react-icons/fa'
 import {RiSearchLine} from 'react-icons/ri'
 import ComplaintsView from '../components/ComplaintsView'
+import CreateIssue from '../components/CreateIssue'
+
 
 const Landing = () => 
 {
 
+    const [complaints, setComplaints] = useState({})
     const [view, setView] = useState(0) //Views: 0 - default, 1 - create issue
+
+    useEffect(() => 
+    {
+
+    },[]);
+
     function onMouseEnterNavbar()
     {
     /*    console.log('Mouse entered')
@@ -52,7 +61,7 @@ const Landing = () =>
             </div>
 
             <div className="pageContent">
-                {!view?<ComplaintsView/>:'Create Issue'}
+                {!view?<ComplaintsView/>:<CreateIssue/>}
             </div>
         </div>
     )
