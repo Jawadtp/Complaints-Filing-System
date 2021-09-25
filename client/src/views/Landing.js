@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import {BsPlus} from 'react-icons/bs'
-import {FaSearch} from 'react-icons/fa'
-import {RiSearchLine} from 'react-icons/ri'
+import {RiSearchLine,RiAdminFill} from 'react-icons/ri'
 import ComplaintsView from '../components/ComplaintsView'
 import CreateIssue from '../components/CreateIssue'
 
@@ -76,15 +75,26 @@ const Landing = () =>
 
     }
 
+    function onAdminLoginClick()
+    {
+        setView(0) //0 - complaints view
+    }
+
     return (
         <div className="pageWrapper">
             <div className="vertNavBar" onMouseOver={onMouseEnterNavbar} onMouseOut={onMouseLeaveNavbar}>
                 <div className="navBarContainer">
+
                     <div className="navBarItem" onClick={onSearchIssuesClick}>
                         <RiSearchLine id="searchIcon" size={25} color={'white'}/><span className="navItemDesc">SEARCH ISSUES</span>
                     </div>
+
                     <div className="navBarItem" onClick={onCreateIssueClick}>
                         <BsPlus size={30} id="plusIcon" color={'white'}/><span className="navItemDesc">CREATE ISSUES</span>
+                    </div>
+
+                    <div className="navBarItem" onClick={onAdminLoginClick}>
+                        <RiAdminFill size={30} id="adminLogin" color={'white'}/><span className="navItemDesc">ADMIN LOGIN</span>
                     </div>
                 </div>
                 

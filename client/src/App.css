@@ -4,7 +4,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 60px;
+    width: 75px;
     min-height: 100%;
     overflow-x: hidden;
     z-index: 100;
@@ -23,7 +23,7 @@
 {
   width: 100%;
   height: 42px;
-  padding: 10px 15px;
+  padding: 10px 22px;
   color: rgb(222, 235, 255);
   transition: color 0.1s ease 0s;
   cursor: pointer;
@@ -31,7 +31,8 @@
 }
 
 #searchIcon,
-#plusIcon{
+#plusIcon,
+#adminLogin{
   position: relative;
   top:5px
 }
@@ -48,7 +49,7 @@ svg
 .navItemDesc
 {
   color: white;
-  margin-left: 25px;
+  margin-left: 28px;
   font-size: 13px;
   font-weight: 600;
 }
