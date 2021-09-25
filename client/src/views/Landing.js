@@ -9,11 +9,39 @@ import CreateIssue from '../components/CreateIssue'
 const Landing = () => 
 {
 
-    const [complaints, setComplaints] = useState({})
+    const [complaints, setComplaints] = useState([])
     const [view, setView] = useState(0) //Views: 0 - default, 1 - create issue
 
     useEffect(() => 
     {
+        const comp = 
+        [
+            {
+                'id':1,
+                'title':'Unsanitary practices at mess',
+                'name':'Sunadin Shen',
+                'status': 0
+            },
+            {
+                'id':2,
+                'title':'Misbehaviour of resident professors',
+                'name':'Herimu',
+                'status': 0
+            },
+            {
+                'id':3,
+                'title':'Terrible internet coverage',
+                'name':'Annen',
+                'status': 1
+            },
+            {
+                'id':4,
+                'title':'Female visitors at B Hostel',
+                'name':'Hedif',
+                'status': 2
+            },
+        ]
+        setComplaints(comp)
 
     },[]);
 
@@ -44,6 +72,7 @@ const Landing = () =>
 
     function onSearchIssuesClick()
     {
+        setView(0) //0 - complaints view
 
     }
 
@@ -61,7 +90,7 @@ const Landing = () =>
             </div>
 
             <div className="pageContent">
-                {!view?<ComplaintsView/>:<CreateIssue/>}
+                {!view?<ComplaintsView complaints={complaints}/>:<CreateIssue/>}
             </div>
         </div>
     )
