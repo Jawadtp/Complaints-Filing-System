@@ -21,19 +21,28 @@
 
 .navBarItem
 {
-  padding: 0px 10px;
+  width: 100%;
+  height: 42px;
+  padding: 10px 15px;
+  color: rgb(222, 235, 255);
+  transition: color 0.1s ease 0s;
   cursor: pointer;
-  display: block;
-  margin-left: 15px;
-  margin-top: 10px;
-  justify-content: center;
-  align-items: center;
+  user-select: none;
 }
 
+#searchIcon,
+#plusIcon{
+  position: relative;
+  top:5px
+}
 
 svg 
 {
   vertical-align: bottom;
+}
+
+.navBarContainer{
+  margin-top: 90px;
 }
 
 .navItemDesc
@@ -42,6 +51,10 @@ svg
   margin-left: 25px;
   font-size: 13px;
   font-weight: 600;
+}
+
+.navBarItem:hover{
+  background-color: #0c57c7;
 }
 
 a
@@ -70,7 +83,7 @@ a
 .landingSearch
 {
   border: none;
-  border-radius: 15px;
+  border-radius: 3px;
   height: 25px;
   background-color: #dfe1e6;
   margin-top: 20px;
@@ -95,12 +108,11 @@ button:focus {
 {
   display: flex;
   flex-direction: column;
-  width: 260px;
+  width: 30%;
   background-color: #dfe1e6;
-  margin-right: 100px;
-  border-radius: 5px;
+  margin-right: 25px;
+  border-radius: 4px;
   padding: 6px;
-  height: 500px;
 }
 
 .issueForm{
@@ -142,7 +154,9 @@ button:focus {
 
 .complaintsTitle
 {
+  font-size: 1.4rem;
   align-self: center;
+  padding: 15px 0;
 }
 
 .issueForm input[type="text"],
