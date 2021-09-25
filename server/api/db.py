@@ -39,6 +39,14 @@ class User:
 def hash_password(password):
     return hashlib.sha3_512(password.encode()).hexdigest()
 
+def get_admins():
+    db = get_db()
+    cur = db.cursor()
+    cur.execute("SELECT username FROM admins")
+    admins = cur.fetchall()
+    cur.close()
+    return {'admins': tuple(admins)}
+
 def get_admin(username):
     db = get_db()
     cur = db.cursor()
@@ -91,9 +99,9 @@ def get_tiles_by_tag(tag):
 def get_complaint_details(cid):
     db = get_db()
     cur = db.cursor()
-    cur.execute("SELECT c.title, c.date, c.description, s.name, c.status, c.votes, c.priority, c.eta FROM complaints c, students s WHERE c.id = %s AND c.author = s.rollno", (cid,))
-    title, date, description, author, status, votes, priority, eta = cur.fetchone()
-    complaint = {'title': title, 'date': date, 'description': description, 'author': author, 'status': status, 'votes': votes, 'priority': priority, 'eta': eta}
+    cur.execute("SELECT c.title, c.date, c.description, s.name, c.status, c.assignee, c.votes, c.priority, c.eta FROM complaints c, students s WHERE c.id = %s AND c.author = s.rollno", (cid,))
+    title, date, description, author, status, assignee, votes, priority, eta = cur.fetchone()
+    complaint = {'title': title, 'date': date, 'description': description, 'author': author, 'status': status, 'assignee': assignee, 'votes': votes, 'priority': priority, 'eta': eta}
     cur.execute("SELECT * from comments WHERE cid=%s", (cid,))
     comments = [{'id': id, 'cid': cid, 'date': date, 'comment': comment, 'author': author} for id, cid, date, comment, author in cur.fetchall()]
     cur.execute("SELECT t.tag FROM tags t, tags_complaints tc WHERE tc.cid = %s AND t.id = tc.tid", (cid,))
