@@ -13,37 +13,18 @@ const Landing = () =>
 
     useEffect(() => 
     {
-        const comp = 
-        [
-            {
-                'id':1,
-                'title':'Unsanitary practices at mess',
-                'name':'Sunadin Shen',
-                'status': 0
-            },
-            {
-                'id':2,
-                'title':'Misbehaviour of resident professors',
-                'name':'Herimu',
-                'status': 0
-            },
-            {
-                'id':3,
-                'title':'Terrible internet coverage',
-                'name':'Annen',
-                'status': 1
-            },
-            {
-                'id':4,
-                'title':'Female visitors at B Hostel',
-                'name':'Hedif',
-                'status': 2
-            },
-        ]
-        setComplaints(comp)
+        fetch('http://localhost:5000/complaints')
+        .then(response => response.json())
+        .then(data => onComplaintsReceive(data));
 
     },[]);
 
+    function onComplaintsReceive(comps)
+    {
+        setComplaints(comps['tiles'])
+        console.log(comps['tiles'])
+    }
+    
     function onMouseEnterNavbar()
     {
     /*    console.log('Mouse entered')
