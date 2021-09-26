@@ -202,9 +202,9 @@ const DetailedView = (props) =>
                         }
                     </div>
                     {isAdmin?
-                    <div className="complaintEditBtn">
-                    <input type="button" value="Update" onClick={onUpdateClick}/>
-                    </div>:''
+                        <div className="complaintEditBtn">
+                        <input type="button" value="Update" onClick={onUpdateClick}/>
+                        </div>:''
                     }
                     
 
