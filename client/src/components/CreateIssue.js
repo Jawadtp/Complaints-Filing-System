@@ -1,5 +1,6 @@
 import React from 'react'
 import { BiWindows } from 'react-icons/bi'
+import {IoIosArrowBack} from 'react-icons/io'
 
 const CreateIssue = (props) => 
 {
@@ -40,8 +41,16 @@ const CreateIssue = (props) =>
 
         
     }
-
+    
+    function onBackBtnClick()
+    {
+        window.location.reload()
+    }
     return (
+        <>
+        <div className="backBtn" onClick={onBackBtnClick}>
+                <IoIosArrowBack size='40px'/>
+        </div>
         <div className="issueForm">
             <div>
                 <h1>
@@ -105,6 +114,7 @@ const CreateIssue = (props) =>
                 </form>
             </div>
         </div>
+        </>
     )
 }
 
