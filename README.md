@@ -1,4 +1,4 @@
-# Complaint Filing System
+# Virtual Complaint Box
 
 ## Statement
 
@@ -53,4 +53,17 @@
 
 ## Frequently Asked Questions (FAQ)
 
+1. What is the purpose of this project?
+   To provide a hassle-free way for students to register hostel related complaints.
+2. What do the colors on the tiles mean?
+   The colors indicate the severity of the complaint. Green indicates a minor complaint, orange indicates a major complaint, and red indicates a critical complaint.
+3. How are the tiles sorted?
+   
+4. Can Admins alter the complaints?
+   
+
 ## Next Steps
+
+1. Make the UI responsive.
+2. Implement a mobile-optimized UI.
+3. Implement a comments system on complaints.
