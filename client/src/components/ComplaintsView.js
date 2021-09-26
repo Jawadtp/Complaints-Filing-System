@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react'
+import { BiSearch } from 'react-icons/bi'
 import { icons } from 'react-icons/lib'
 import ComplainsColumns from './ComplainsColumns'
 import DetailedView from './DetailedView'
@@ -45,6 +46,21 @@ const ComplaintsView = (props) =>
         .then(data => onComplaintsByTagReceive(data));
     }
 
+    function searchIssues(e){
+        const cards = document.querySelectorAll('.card')
+
+        for(let i = 0; i < cards.length; i++){
+            const id = cards[i].id
+            console.log(document.getElementById(id).children[0].textContent)
+            if(document.getElementById(id).children[0].textContent.search(new RegExp(e.target.value,'i'))<0){
+                cards[i].style.display = "none"
+            }
+            else{
+                cards[i].style.display = ""
+            }
+        }
+    }
+
     return (
         <div className="complaintsViewWrapper">
             
@@ -53,7 +69,10 @@ const ComplaintsView = (props) =>
             <>
             <div className="boardHome">board / home</div>
             <div className="complaints">Complaints</div>
-            <input type='text' className="landingSearch" placeholder="Search.."/>
+
+            {/* <div className="landingSearchWrapper"> */}
+                <input type='text' className="landingSearch" id="search" onChange={searchIssues} placeholder="Search.."/>
+            {/* </div> */}
 
             <div className="tagRow">
                 {
