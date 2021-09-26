@@ -112,9 +112,6 @@ const CreateIssue = (props) =>
 
                     <div>
                         <div className="issueFormSubmitButtons">
-                            <input type="button" value="Cancel"/>
-                        </div>
-                        <div className="issueFormSubmitButtons">
                             <input type="button" value="Register Issue" onClick={postComplaint}/>
                         </div>
                     </div>
