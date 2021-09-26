@@ -59,7 +59,7 @@ Our web application's user interface is simple and easy to use, making filing a 
 
 ![ss1](screenshots/img1.png)
 ![ss2](screenshots/img2.png)
-![ss3](screenshots/img3.png
+![ss3](screenshots/img3.png)
 
 ## Frequently Asked Questions (FAQ)
 
