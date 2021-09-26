@@ -1,4 +1,5 @@
 import React from 'react'
+import { BiWindows } from 'react-icons/bi'
 
 const CreateIssue = () => 
 {
@@ -26,8 +27,11 @@ const CreateIssue = () =>
         body: JSON.stringify(complaintToPost),
         })
         .then(response => response.json())
-        .then(result => {
-        console.log('Success:', result);
+        .then(result => 
+            {
+                window.location.reload()
+                alert('Your complaint has been registered')
+                console.log('Success:', result);
         })
         .catch(error => {
         console.error('Error:', error);

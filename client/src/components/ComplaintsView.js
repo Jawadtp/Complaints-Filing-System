@@ -8,12 +8,18 @@ const ComplaintsView = (props) =>
 
     const [detailedViewID, setDetailedViewID]=useState(-1)
 
-    
+    const [complaints, setComplaints] = useState(props.complaints)
+        
 
     function onCardClick(id)
     {
         console.log(id)
         setDetailedViewID(id)
+    }
+
+    function onTagClick(id)
+    {
+        console.log('Tag id: '+id)
     }
 
     return (
@@ -30,7 +36,7 @@ const ComplaintsView = (props) =>
                 {
                     props.tags.map(function (tag) {
                     return(
-                        <div className="tags" id={tag}>
+                        <div className="tags" id={tag} onClick={onTagClick(tag)}>
                             {tag}
                         </div>
                     )
