@@ -7,7 +7,14 @@ const CreateIssue = (props) =>
     function postComplaint()
     {
 
-        var tags = ['tag1']
+        var tags = []
+
+
+        props.tags.forEach(tag => 
+        {
+            if(document.getElementById(tag).checked)
+                tags.push(tag[0])
+        }); 
 
         const complaintToPost = 
         {
@@ -19,6 +26,7 @@ const CreateIssue = (props) =>
         }
 
         console.log(complaintToPost)
+        console.log('Tags: ')
         console.log(complaintToPost['tags'])
 
 
@@ -92,8 +100,8 @@ const CreateIssue = (props) =>
                         {
                             props.tags.map(function (tag){
                                 return(
-                                <div class="tag" id={tag}>
-                                    <input type="checkbox" />
+                                <div class="tag" >
+                                    <input type="checkbox" class="tagCheckbox" id={tag}/>
                                     <label>{tag}</label>
                                 </div>
                             )
