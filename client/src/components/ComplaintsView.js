@@ -26,7 +26,7 @@ const ComplaintsView = (props) =>
                 {
                     props.tags.map(function (tag) {
                     return(
-                        <div className="tags">
+                        <div className="tags" id={tag}>
                             {tag}
                         </div>
                     )

@@ -17,6 +17,7 @@
 {
   transition: 0.5s;
   width: 200px;
+  box-shadow: rgb(0 0 0 / 60%) 0px 0px 50px 0px;
 }
 
 .navBarItem
@@ -34,7 +35,7 @@
 #plusIcon,
 #adminLogin{
   position: relative;
-  top:5px
+  top:9px
 }
 
 svg 
@@ -63,12 +64,19 @@ svg
   background-color: #0c57c7;
 }
 
-.tags{
-  margin:3px;
+.tagRow .tags{
+  margin: 3px;
+  margin-top: 20px;
   border-radius: 3px;
   display: inline-block;
   background-color: #dfe1e6;
   padding: 5px 10px;
+}
+
+.tagRow .tags:hover{
+  cursor: pointer;
+  color: white;
+  background-color: rgb(33, 90, 211);
 }
 
 a
@@ -160,8 +168,18 @@ button:focus {
   transition: background 0.1s ease 0s;
   cursor: pointer;
   user-select: none;
+}
 
+.low{
   border-bottom: 4px solid green;
+}
+
+.medium{
+  border-bottom: 4px solid #FF8E15;
+}
+
+.high{
+  border-bottom: 4px solid red;
 }
 
 .card:hover{
@@ -197,7 +215,7 @@ button:focus {
   width: 98%;
 }
 
-.issueForm input[value="Create Issue"]{
+.issueForm input[value="Register Issue"]{
   padding: 0 10px;
   color: white;
   border: none;
@@ -206,11 +224,12 @@ button:focus {
   background-color: #0f65e6;
 }
 
-.issueForm input[value="Create Issue"]:hover{
+.issueForm input[value="Register Issue"]:hover{
   background-color: #0c56c5;
 }
 
 .issueForm input[value="Cancel"]{
+  color: white;
   padding: 0 10px;
   height: 2rem;
   border: none;
@@ -222,13 +241,9 @@ button:focus {
   background-color: rgb(143, 143, 143);
 }
 
-.tags{
-  margin-top: 20px;
-}
-
 .issueFormSubmitButtons{
   display: inline-block;
-  padding: 20px 5px;
+  padding: 5px 5px;
 }
 
 #tag1,

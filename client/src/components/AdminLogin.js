@@ -32,13 +32,13 @@ function AdminLogin(props)
             });
     }    
     return(
-        <div class="wrapper adminLogin">
+        <div className="wrapper adminLogin">
             <div id="formContent">
-                <h2 class="active"> Sign In </h2>
+                <h2 className="active"> Sign In </h2>
                 <form>
-                    <input type="text" id="login" class="second" name="login" placeholder="login" />
-                    <input type="text" id="password" class="third" name="login" placeholder="password" />
-                    <input type="button" class="fourth" value="Log In" onClick={logUserIn}/>
+                    <input type="text" id="login" className="second" name="login" placeholder="login" />
+                    <input type="text" id="password" className="third" name="login" placeholder="password" />
+                    <input type="button" className="fourth" value="Log In" onClick={logUserIn}/>
                 </form>
             </div>
         </div>

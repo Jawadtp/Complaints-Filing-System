@@ -10,7 +10,7 @@ const Landing = () =>
 
     const [complaints, setComplaints] = useState([])
     const [tags, setTags] = useState([])
-    const [view, setView] = useState(0) //Views: 0 - default, 1 - create issue,2 - admin login
+    const [view, setView] = useState(0) //Views: 0 - default, 1 - register issue,2 - admin login
 
     useEffect(() => 
     {
@@ -85,7 +85,7 @@ const Landing = () =>
                     </div>
 
                     <div className="navBarItem" onClick={onCreateIssueClick}>
-                        <BsPlus size={30} id="plusIcon" color={'white'}/><span className="navItemDesc">CREATE ISSUES</span>
+                        <BsPlus size={30} id="plusIcon" color={'white'}/><span className="navItemDesc">REGISTER ISSUES</span>
                     </div>
 
                     <div className="navBarItem" onClick={onAdminLoginClick}>

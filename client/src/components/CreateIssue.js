@@ -41,7 +41,7 @@ const CreateIssue = () =>
         <div className="issueForm">
             <div>
                 <h1>
-                    Create Issue
+                    Register Issue
                 </h1>
             </div>
 
@@ -49,7 +49,7 @@ const CreateIssue = () =>
                 <form>
 
                     <div className="author">
-                        <label>Enter you roll number</label><br/>
+                        <label>Enter your roll number</label><br/>
                         <input type="text" id="author" placeholder="Roll no"></input>
                     </div>
 
@@ -98,7 +98,7 @@ const CreateIssue = () =>
                             <input type="button" value="Cancel"/>
                         </div>
                         <div className="issueFormSubmitButtons">
-                            <input type="button" value="Create Issue" onClick={postComplaint}/>
+                            <input type="button" value="Register Issue" onClick={postComplaint}/>
                         </div>
                     </div>
                     

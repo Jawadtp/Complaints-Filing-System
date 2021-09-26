@@ -70,7 +70,8 @@ h2.active {
 
 /* FORM TYPOGRAPHY*/
 
-input[type=button], input[type=submit]  {
+.adminLogin input[type=button], 
+.adminLogin input[type=submit]  {
   background-color: #0747a6;
   border: none;
   color: white;
