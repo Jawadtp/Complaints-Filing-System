@@ -80,7 +80,7 @@ const Landing = () =>
                 <div className="navBarContainer">
 
                     <div className="navBarItem" onClick={onSearchIssuesClick}>
-                        <RiSearchLine id="searchIcon" size={25} color={'white'}/><span className="navItemDesc">SEARCH ISSUES</span>
+                        <RiSearchLine id="searchIcon" size={25} color={'white'}/><span className="navItemDesc">VIEW ALL ISSUES</span>
                     </div>
 
                     <div className="navBarItem" onClick={onCreateIssueClick}>
