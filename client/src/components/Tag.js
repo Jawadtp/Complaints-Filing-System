@@ -1,8 +1,13 @@
 import React from 'react'
 
-const Tag = (props) => {
+const Tag = (props) => 
+{
+    function onTagClick()
+    {
+        props.onTagClick(props.tag)
+    }
     return (
-        <div className="tags" id={props.tag} onClick={onTagClick()}>
+        <div className={`tags ${props.tag==props.selectedTag?'selected':''}`} id={props.tag} onClick={onTagClick}>
             {props.tag}
         </div>
     )

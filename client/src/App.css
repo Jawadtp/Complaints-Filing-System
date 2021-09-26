@@ -79,6 +79,11 @@ svg
   background-color: rgb(33, 90, 211);
 }
 
+.tags.selected
+{
+  color: white;
+  background-color: rgb(33, 90, 211);
+}
 a
 {
   text-decoration: none;

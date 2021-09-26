@@ -2,12 +2,13 @@ import React, {useState, useEffect} from 'react'
 import { icons } from 'react-icons/lib'
 import ComplainsColumns from './ComplainsColumns'
 import DetailedView from './DetailedView'
-
+import Tag from './Tag'
 const ComplaintsView = (props) => 
 {
 
     const [detailedViewID, setDetailedViewID]=useState(-1)
 
+    const [selectedTag, setSelectedTag]=useState('')
         
     useEffect(() => 
     {
@@ -20,9 +21,28 @@ const ComplaintsView = (props) =>
         setDetailedViewID(id)
     }
 
-    function onTagClick()
+    function onComplaintsByTagReceive(data)
     {
-        console.log('Tag id: ')
+        console.log(data['tiles'])
+        props.setComplaints(data['tiles'])
+    }
+
+    function onTagClick(id)
+    {
+
+        if(selectedTag===id)
+        {
+            console.log('deselecting tag')
+            id=''
+            setSelectedTag('')
+        }
+        console.log('Tag id: '+id)
+        console.log('Fetching complaints by tag..')
+        
+        setSelectedTag(id)
+        fetch('http://localhost:5000/complaints/'+id)
+        .then(response => response.json())
+        .then(data => onComplaintsByTagReceive(data));
     }
 
     return (
@@ -39,9 +59,7 @@ const ComplaintsView = (props) =>
                 {
                     props.tags.map(function (tag) {
                     return(
-                        <div className="tags" id={tag} onClick={onTagClick()}>
-                            {tag}
-                        </div>
+                        <Tag tag={tag} onTagClick={onTagClick} selectedTag={selectedTag}/>
                     )
                 })}
             </div>

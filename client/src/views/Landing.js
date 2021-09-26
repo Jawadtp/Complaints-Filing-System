@@ -64,10 +64,10 @@ const Landing = () =>
 
     function setPageContent(view){
         if(view === 0){
-            return(<ComplaintsView complaints={complaints} tags={tags}/>)
+            return(<ComplaintsView complaints={complaints} tags={tags} setComplaints={setComplaints}/>)
         }
         else if(view === 1){
-            return(<CreateIssue tags={tags} />)
+            return(<CreateIssue/>)
         }
         else{
             return(<AdminLogin setView={setView}/>)
