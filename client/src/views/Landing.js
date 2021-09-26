@@ -67,7 +67,7 @@ const Landing = () =>
             return(<ComplaintsView complaints={complaints} tags={tags}/>)
         }
         else if(view === 1){
-            return(<CreateIssue/>)
+            return(<CreateIssue tags={tags} />)
         }
         else{
             return(<AdminLogin setView={setView}/>)

@@ -1,7 +1,7 @@
 import React from 'react'
 import { BiWindows } from 'react-icons/bi'
 
-const CreateIssue = () => 
+const CreateIssue = (props) => 
 {
     function postComplaint()
     {
@@ -77,24 +77,20 @@ const CreateIssue = () =>
                         <textarea id="desc"></textarea>
                     </div>
 
-                    <div className="tags">
+                    <div className="registerTags">
 
                         <div>Select tags: </div>
-
-                        <div id="tag1">
-                            <input type="checkbox" />
-                            <label for="scales">Tag1</label>
-                        </div>
-
-                        <div id="tag2">
-                            <input type="checkbox"/>
-                            <label for="scales">Tag2</label>
-                        </div>
-
-                        <div id="tag3">
-                            <input type="checkbox"/>
-                            <label for="scales">Tag3</label>
-                        </div>
+                        {
+                            props.tags.map(function (tag){
+                                return(
+                                <div class="tag" id={tag}>
+                                    <input type="checkbox" />
+                                    <label>{tag}</label>
+                                </div>
+                            )
+                            })
+                        }
+                        
                     </div>
 
                     <div>
