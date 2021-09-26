@@ -1,4 +1,5 @@
 import '../login.css'
+import {IoIosArrowBack} from 'react-icons/io'
 
 function AdminLogin(props)
 {
@@ -33,17 +34,30 @@ function AdminLogin(props)
             console.error('Error:', error);
             });
     }    
+
+    function onBackBtnClick()
+    {
+        console.log('Backbutton clicked')
+        window.location.reload()
+    }
     return(
-        <div className="wrapper adminLogin">
-            <div id="formContent">
-                <h2 className="active"> Sign In </h2>
-                <form>
-                    <input type="text" id="login" className="second" name="login" placeholder="login" />
-                    <input type="text" id="password" className="third" name="login" placeholder="password" />
-                    <input type="button" className="fourth" value="Log In" onClick={logUserIn}/>
-                </form>
+        <>
+            <div className="backBtn adminPage" onClick={onBackBtnClick}>
+                <IoIosArrowBack size='40px'/>
             </div>
-        </div>
+
+            <div className="wrapper adminLogin">
+                
+                <div id="formContent">
+                    <h2 className="active"> Sign In </h2>
+                    <form>
+                        <input type="text" id="login" className="second" name="login" placeholder="login" />
+                        <input type="text" id="password" className="third" name="login" placeholder="password" />
+                        <input type="button" className="fourth" value="Log In" onClick={logUserIn}/>
+                    </form>
+                </div>
+            </div>
+        </>
     )
 }
 

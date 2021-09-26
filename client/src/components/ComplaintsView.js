@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react'
+import { icons } from 'react-icons/lib'
 import ComplainsColumns from './ComplainsColumns'
 import DetailedView from './DetailedView'
 
@@ -17,6 +18,7 @@ const ComplaintsView = (props) =>
 
     return (
         <div className="complaintsViewWrapper">
+            
             {console.log(props.tags)}
             {detailedViewID==-1?
             <>

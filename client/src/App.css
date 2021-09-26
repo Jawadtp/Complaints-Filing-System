@@ -363,3 +363,28 @@ button:focus {
   color: white;
   background-color: #2c64b9;
 }
+
+.cardFooter
+{
+  display: flex;
+}
+
+.voteIcon
+{
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+.backBtn
+{
+  display: inline-block;
+  position: absolute;
+  left: 8%;
+  cursor: pointer;
+}
+
+.adminPage.backBtn
+{
+  left: 12%;
+  top: 5%;
+}

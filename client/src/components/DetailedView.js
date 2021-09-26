@@ -1,11 +1,13 @@
 import React, {useState, useEffect} from 'react'
-
+import {BiUpvote} from 'react-icons/bi'
+import {IoIosArrowBack } from 'react-icons/io'
 const DetailedView = (props) => 
 {
     
     const [complaint, setComplaintInfo] = useState({})
     const [isAdmin, setAdmin] = useState(false)
     const [admins, setAdmins] = useState([])
+    const [votes, setVotes] = useState(0)
 
     const priorityText=
     {
@@ -29,6 +31,7 @@ const DetailedView = (props) =>
     function onComplaintInfoLoad(data)
     {
         setComplaintInfo(data)
+        setVotes(data.complaint.votes)
         console.log(data.complaint)
     }
 
@@ -52,6 +55,28 @@ const DetailedView = (props) =>
         console.log('User is an administrator')
         console.log('List of all administrators: ')
         console.log(adminList)
+    }
+
+    function onUpvoteClick()
+    {
+        if(localStorage.getItem('hasVoted'+props.id)) return alert('You have already voted')
+        localStorage.setItem('hasVoted'+props.id, true)
+
+        fetch(`http://localhost:5000/complaints/${props.id}/upvote`, {
+            method: 'POST'
+
+           
+            })
+            .then(response => response.json())
+            .then(result => 
+                {
+            setVotes(votes+1)
+            console.log('Success:', result);
+            })
+            .catch(error => {
+            console.error('Error:', error);
+            });
+
     }
 
     useEffect(() => 
@@ -100,8 +125,10 @@ const DetailedView = (props) =>
             body: JSON.stringify(updatedInfo),
             })
             .then(response => response.json())
-            .then(result => {
+            .then(result => 
+                {
             console.log('Success:', result);
+            window.location.reload()
             })
             .catch(error => {
             console.error('Error:', error);
@@ -109,8 +136,16 @@ const DetailedView = (props) =>
 
     }
 
+    function onBackBtnClick()
+    {
+        console.log('Backbutton clicked')
+        window.location.reload()
+    }
     return (
         <div className="detailViewPageWrapper">
+            <div className="backBtn" onClick={onBackBtnClick}>
+                <IoIosArrowBack size='40px'/>
+            </div>
             {Object.keys(complaint).length==0?'Loading':
             <div className="detailedViewWrapper">
 
@@ -131,10 +166,13 @@ const DetailedView = (props) =>
                     <div className="votesWrapper">
                         <div className="votesTitle">
                             Upvotes
+                            
                         </div>
                         <div className="votes">
-                            {complaint.complaint.votes}
+                            {votes}
+                            <span className="voteIcon" onClick={onUpvoteClick}><BiUpvote/></span>
                         </div>
+
                     </div>
 
                 </div>
