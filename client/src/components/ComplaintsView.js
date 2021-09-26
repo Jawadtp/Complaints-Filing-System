@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import ComplainsColumns from './ComplainsColumns'
 import DetailedView from './DetailedView'
 
@@ -6,6 +6,8 @@ const ComplaintsView = (props) =>
 {
 
     const [detailedViewID, setDetailedViewID]=useState(-1)
+
+    
 
     function onCardClick(id)
     {

@@ -334,3 +334,8 @@ button:focus {
 .statusSection{
   margin-top: 3rem;
 }
+
+.complaintEditBtn
+{
+  margin-top: 50px;
+}

@@ -5,9 +5,11 @@ function AdminLogin(props)
 
     function onUserAuthentication(result)
     {
-        console.log('Login successful '+result.access_token)
+        console.log('Login successful: '+result.access_token)
+        localStorage.setItem('token', result.access_token)
         props.setView(0)
     }
+    
     function logUserIn()
     {
 
