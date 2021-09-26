@@ -10,7 +10,7 @@ import datetime
 def init_app():
     app = Flask(__name__)
     app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', '12345678')
-    app.config['DATABASE_URL'] = 'dbname=complaints'
+    app.config['DATABASE_URL'] = os.getenv('DATABASE_URL', 'dbname=complaints')
     app.config["JWT_ACCESS_TOKEN_EXPIRES"] = datetime.timedelta(days=30)
     jwt = JWTManager(app)
     cors = CORS(app)

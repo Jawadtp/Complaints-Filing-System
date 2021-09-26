@@ -6,7 +6,7 @@ import hashlib
 def get_db():
     if 'db' not in g:
         DATABASE_URL = current_app.config['DATABASE_URL']
-        # g.db = connect(DATABASE_URL, sslmode='require')
+        g.db = connect(DATABASE_URL, sslmode='require')
         g.db = connect(DATABASE_URL)
     return g.db
 
