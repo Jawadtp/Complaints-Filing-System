@@ -30,7 +30,7 @@ const CreateIssue = (props) =>
         console.log(complaintToPost['tags'])
 
 
-        fetch('http://localhost:5000/complaints', {
+        fetch('https://mycomplaints.herokuapp.com/complaints', {
         method: 'POST',
         
         body: JSON.stringify(complaintToPost),

@@ -41,7 +41,7 @@ const ComplaintsView = (props) =>
         console.log('Fetching complaints by tag..')
         
         setSelectedTag(id)
-        fetch('http://localhost:5000/complaints/'+id)
+        fetch('https://mycomplaints.herokuapp.com/complaints/'+id)
         .then(response => response.json())
         .then(data => onComplaintsByTagReceive(data));
     }
@@ -49,7 +49,8 @@ const ComplaintsView = (props) =>
     function searchIssues(e){
         const cards = document.querySelectorAll('.card')
 
-        for(let i = 0; i < cards.length; i++){
+        for(let i = 0; i < cards.length; i++)
+        {
             const id = cards[i].id
             console.log(document.getElementById(id).children[0].textContent)
             if(document.getElementById(id).children[0].textContent.search(new RegExp(e.target.value,'i'))<0){

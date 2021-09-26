@@ -14,7 +14,7 @@ const Landing = () =>
 
     useEffect(() => 
     {
-        fetch('http://localhost:5000/complaints')
+        fetch('https://mycomplaints.herokuapp.com/complaints')
         .then(response => response.json())
         .then(data => onComplaintsReceive(data));
     },[]);

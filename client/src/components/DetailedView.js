@@ -62,7 +62,7 @@ const DetailedView = (props) =>
         if(localStorage.getItem('hasVoted'+props.id)) return alert('You have already voted')
         localStorage.setItem('hasVoted'+props.id, true)
 
-        fetch(`http://localhost:5000/complaints/${props.id}/upvote`, {
+        fetch(`https://mycomplaints.herokuapp.com/complaints/${props.id}/upvote`, {
             method: 'POST'
 
            
@@ -83,14 +83,14 @@ const DetailedView = (props) =>
     {
         const token = localStorage.getItem('token')
 
-        fetch("http://localhost:5000/admins/", {
+        fetch("https://mycomplaints.herokuapp.com/admins/", {
       method: 'GET',
       headers: {Authorization: 'Bearer ' + token}
           }).then(response=> response.json()).then(data=>updateAdmins(data.admins))
 
 
 
-        fetch('http://localhost:5000/complaints/'+props.id)
+        fetch('https://mycomplaints.herokuapp.com/complaints/'+props.id)
     .then(response => response.json())
     .then(data => onComplaintInfoLoad(data));
 
@@ -113,13 +113,13 @@ const DetailedView = (props) =>
 
         console.log('Posting updated data..')
         
-     /*   fetch(`http://localhost:5000/complaints/${props.id}/edit`, {
+     /*   fetch(`https://mycomplaints.herokuapp.com/complaints/${props.id}/edit`, {
       method: 'POST',
             headers: {Authorization: 'Bearer ' + token},
             body: JSON.stringify(updatedInfo)
           }) */
 
-          fetch(`http://localhost:5000/complaints/${props.id}/edit`, {
+          fetch(`https://mycomplaints.herokuapp.com/complaints/${props.id}/edit`, {
             method: 'POST',
 
             body: JSON.stringify(updatedInfo),

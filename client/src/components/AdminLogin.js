@@ -21,7 +21,8 @@ function AdminLogin(props)
             'password': document.getElementById('password').value
         }
 
-        fetch('http://localhost:5000/admin', {
+        
+        fetch('https://mycomplaints.herokuapp.com/admin', {
             method: 'POST',
             
             body: JSON.stringify(userInfo),
