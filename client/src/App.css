@@ -387,3 +387,8 @@ button:focus {
   left: 12%;
   top: 5%;
 }
+
+.tags
+{
+  cursor: pointer;
+}

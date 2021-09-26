@@ -17,7 +17,6 @@ const Landing = () =>
         fetch('http://localhost:5000/complaints')
         .then(response => response.json())
         .then(data => onComplaintsReceive(data));
-
     },[]);
 
     function onComplaintsReceive(comps)
